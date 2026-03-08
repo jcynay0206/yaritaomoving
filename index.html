@@ -1413,43 +1413,51 @@
         <p class="section-sub">Estos son nuestros rangos reales de precios en el mercado de NJ. Tu cotización exacta depende del tamaño y distancia.</p>
       </div>
 
+      <!-- Rate badge -->
+      <div style="text-align:center; margin-bottom:36px;" class="reveal">
+        <div style="display:inline-flex; align-items:center; gap:10px; background:rgba(184,145,74,0.1); border:1px solid rgba(184,145,74,0.3); border-radius:40px; padding:10px 22px;">
+          <span>💰</span>
+          <span style="font-size:0.88rem; font-weight:600; color:var(--gold);">Tarifa base: <strong>$150/hr por mudancero</strong> + alquiler de camión</span>
+        </div>
+      </div>
+
       <div class="pricing-grid">
         <div class="price-card reveal">
           <div class="price-type">Mudanza Local</div>
           <div class="price-rooms">Estudio / 1 habitación</div>
-          <div class="price-amount"><sup>$</sup>550</div>
-          <div class="price-range">hasta $800 aprox.</div>
-          <div class="price-note">Cobro por hora · 2–3 hrs promedio · 2 mudanceros</div>
+          <div class="price-amount"><sup>$</sup>990</div>
+          <div class="price-range">hasta ~$1,290 · según horas reales</div>
+          <div class="price-note">2 mudanceros · 2–4 hrs · $150/hr/mud. · + camión $90</div>
         </div>
 
         <div class="price-card highlight reveal reveal-delay-1">
           <div class="price-type">Mudanza Local</div>
           <div class="price-rooms">2 habitaciones</div>
-          <div class="price-amount"><sup>$</sup>900</div>
-          <div class="price-range">hasta $1,400 aprox.</div>
-          <div class="price-note">Cobro por hora · 4–6 hrs promedio · 3 mudanceros</div>
+          <div class="price-amount"><sup>$</sup>1,480</div>
+          <div class="price-range">hasta ~$1,930 · según horas reales</div>
+          <div class="price-note">3 mudanceros · 2–4 hrs · $150/hr/mud. · + camión $130</div>
         </div>
 
         <div class="price-card reveal reveal-delay-2">
           <div class="price-type">Mudanza Local</div>
           <div class="price-rooms">3 habitaciones o más</div>
-          <div class="price-amount"><sup>$</sup>1,680</div>
-          <div class="price-range">hasta $2,500 aprox.</div>
-          <div class="price-note">Cobro por hora · 6–8 hrs promedio · 4 mudanceros</div>
+          <div class="price-amount"><sup>$</sup>2,575</div>
+          <div class="price-range">hasta ~$3,175 · según horas reales</div>
+          <div class="price-note">4 mudanceros · 3–5 hrs · $150/hr/mud. · + camión $175</div>
         </div>
 
         <div class="price-card reveal reveal-delay-3">
           <div class="price-type">Interstate</div>
           <div class="price-rooms">NJ a otro estado</div>
-          <div class="price-amount"><sup>$</sup>2,500</div>
-          <div class="price-range">hasta $5,000+ según distancia</div>
-          <div class="price-note">Precio fijo · Incluye combustible y peajes</div>
+          <div class="price-amount"><sup>$</sup>2,800</div>
+          <div class="price-range">hasta $7,000+ según distancia</div>
+          <div class="price-note">Precio fijo por ruta · Camión + combustible + mano de obra incluidos</div>
         </div>
       </div>
 
       <div class="pricing-note-box reveal">
-        <div class="icon">💡</div>
-        <p>Los precios varían según el <strong>inventario exacto</strong>, la <strong>distancia</strong> y servicios adicionales como empaque. Contáctanos y te damos una <strong>cotización gratuita y sin compromiso</strong> en menos de una hora.</p>
+        <div class="icon">📌</div>
+        <p>El tiempo real de cada mudanza varía según el <strong>inventario exacto, pisos, distancia al camión y acceso</strong>. El cobro es por horas trabajadas a <strong>$150/hr por mudancero</strong>. La calculadora abajo te da un estimado desglosado.</p>
       </div>
     </div>
   </section>
@@ -1483,9 +1491,12 @@
             </select>
           </div>
 
-          <div class="form-group" id="distance-group" style="display:none;">
-            <label>Distancia aproximada (millas)</label>
-            <input type="number" id="calc-distance" placeholder="ej. 350" min="50" max="3000" onchange="calcEstimate()" />
+          <div class="form-group">
+            <label id="miles-label">📍 Millas recorridas (origen → destino)</label>
+            <input type="number" id="calc-miles" placeholder="ej. 15" min="1" max="3000" value="15" oninput="calcEstimate()" />
+            <div id="miles-hint" style="font-size:0.75rem; color:var(--muted); margin-top:6px;">
+              💡 Puedes usar Google Maps para calcular las millas exactas entre las dos direcciones
+            </div>
           </div>
 
           <div class="form-group">
@@ -1505,15 +1516,25 @@
 
           <!-- Breakdown lines -->
           <div class="breakdown">
+            <div class="breakdown-row" style="background:rgba(184,145,74,0.06); border-radius:6px; padding:8px 10px; margin-bottom:4px;">
+              <span class="breakdown-icon">📐</span>
+              <span class="breakdown-concept" id="bd-formula">$150 × 2 mud. × 3 hrs</span>
+              <span class="breakdown-val" style="font-size:0.78rem; color:var(--gold);">fórmula</span>
+            </div>
             <div class="breakdown-row">
               <span class="breakdown-icon">👷</span>
               <span class="breakdown-concept">Mano de obra</span>
-              <span class="breakdown-val" id="bd-labor">$475</span>
+              <span class="breakdown-val" id="bd-labor">$900</span>
             </div>
             <div class="breakdown-row truck-row">
               <span class="breakdown-icon">🚛</span>
-              <span class="breakdown-concept">Alquiler de camión</span>
-              <span class="breakdown-val" id="bd-truck">$120</span>
+              <span class="breakdown-concept" id="bd-truck-label">Camión base</span>
+              <span class="breakdown-val" id="bd-truck">$90</span>
+            </div>
+            <div class="breakdown-row" id="bd-miles-row">
+              <span class="breakdown-icon">📍</span>
+              <span class="breakdown-concept" id="bd-miles-label">15 millas × $0.89/mi</span>
+              <span class="breakdown-val" id="bd-miles">$13</span>
             </div>
             <div class="breakdown-row" id="bd-extras-row" style="display:none;">
               <span class="breakdown-icon">📦</span>
@@ -1525,16 +1546,16 @@
               <span></span>
               <span class="breakdown-concept">Total estimado</span>
               <div class="result-amount" id="result-amount">
-                <span class="result-currency">$</span><span id="result-num">595</span>
+                <span class="result-currency">$</span><span id="result-num">1,003</span>
               </div>
             </div>
           </div>
 
           <div class="result-disclaimer">
-            ⚠️ Estimado referencial. El precio final varía según inventario exacto, pisos, distancia real y condiciones del día.
+            ⚠️ Cobro real por horas trabajadas. El cronómetro corre desde que el equipo llega hasta que termina. Estimado orientativo — el total final depende del tiempo real.
           </div>
           <div class="result-cta">
-            <a href="https://wa.me/19084578129?text=Hola,%20calculé%20mi%20mudanza%20en%20el%20estimado%20y%20me%20salió%20$" class="btn-primary" target="_blank" id="wa-calc-btn" style="width:100%; justify-content:center;">
+            <a href="https://wa.me/19084578129?text=Hola,%20calculé%20mi%20mudanza%20y%20me%20salió%20$" class="btn-primary" target="_blank" id="wa-calc-btn" style="width:100%; justify-content:center;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Confirmar cotización ahora
             </a>
@@ -1883,48 +1904,85 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     /* ── Calculator ── */
+    const RATE       = 150;   // $150/hr por mudancero
+    const MILE_RATE  = 0.89;  // $0.89 por milla recorrida
+
+    const TRUCK_BASE = { studio: 90, '2br': 130, '3br': 175, '4br': 235 };
+
+    const SIZE_CONFIG = {
+      studio: { movers: 2, hrsLocal: 3,   hrsInter: 1.5 },
+      '2br':  { movers: 3, hrsLocal: 3,   hrsInter: 1.5 },
+      '3br':  { movers: 4, hrsLocal: 4,   hrsInter: 2   },
+      '4br':  { movers: 5, hrsLocal: 6,   hrsInter: 3   }
+    };
+
+    const HRS_LABELS = {
+      studio: { local: '2–4 hrs', inter: '+ 1 día' },
+      '2br':  { local: '2–4 hrs', inter: '+ 1 día' },
+      '3br':  { local: '3–5 hrs', inter: '1–2 días' },
+      '4br':  { local: '5–8 hrs', inter: '2–3 días' }
+    };
+
+    const TRUCK_SIZE = { studio: '14ft', '2br': '17ft', '3br': '20ft', '4br': '26ft' };
+
     function calcEstimate() {
-      const type     = document.getElementById('calc-type').value;
-      const size     = document.getElementById('calc-size').value;
-      const extras   = document.getElementById('calc-extras').value;
-      const distGroup = document.getElementById('distance-group');
+      const type   = document.getElementById('calc-type').value;
+      const size   = document.getElementById('calc-size').value;
+      const extras = document.getElementById('calc-extras').value;
+      const miles  = parseFloat(document.getElementById('calc-miles').value) || 15;
+      const cfg    = SIZE_CONFIG[size];
 
-      distGroup.style.display = type === 'interstate' ? 'block' : 'none';
+      // Update label & hint based on type
+      document.getElementById('miles-label').textContent =
+        type === 'local'
+          ? '📍 Millas recorridas (origen → destino)'
+          : '📍 Millas totales hasta el destino final';
+      document.getElementById('miles-hint').textContent =
+        type === 'local'
+          ? '💡 Usa Google Maps para calcular las millas exactas entre las dos direcciones'
+          : '💡 Ej: NJ → Miami FL ≈ 1,280 mi · NJ → Houston TX ≈ 1,560 mi · NJ → Chicago IL ≈ 790 mi';
 
-      /* --- Labor (mano de obra) --- */
-      const laborLocal = { studio: 475, '2br': 820, '3br': 1480, '4br': 2000 };
-      const laborInter = { studio: 1700, '2br': 2200, '3br': 3200, '4br': 4200 };
+      // ── Labor ──────────────────────────────────────
+      let hrs, labor;
+      if (type === 'local') {
+        hrs   = cfg.hrsLocal;
+        labor = RATE * cfg.movers * hrs;
+      } else {
+        hrs   = cfg.hrsInter;
+        labor = Math.round(RATE * cfg.movers * hrs * 3.5);
+      }
 
-      /* --- Truck rental (alquiler de camión) ---
-           Local: tarifa diaria + millas (~$0.89/mi)
-           Interstate: base diaria × días estimados + combustible       */
-      const truckLocal = { studio: 120, '2br': 155, '3br': 210, '4br': 280 };
-      const truckInterBase = { studio: 420, '2br': 620, '3br': 950, '4br': 1350 };
+      // ── Truck base + mileage ───────────────────────
+      const truckBase  = TRUCK_BASE[size];
+      const milesCost  = Math.round(miles * MILE_RATE);
+      const rentalDays = type === 'local' ? 1 : (size === '4br' ? 3 : 2);
+      const truckTotal = (truckBase * rentalDays) + milesCost;
 
-      /* --- Extras --- */
+      // ── Extras ─────────────────────────────────────
       const extrasMap = {
         none:    { cost: 0,   label: '' },
         packing: { cost: 350, label: 'Empaque completo' },
         storage: { cost: 200, label: 'Almacenamiento temporal' },
         both:    { cost: 530, label: 'Empaque + Storage' }
       };
-
-      let labor = type === 'local' ? laborLocal[size] : laborInter[size];
-      let truck = type === 'local' ? truckLocal[size] : truckInterBase[size];
-
-      if (type === 'interstate') {
-        const dist = parseInt(document.getElementById('calc-distance').value) || 350;
-        const distMult = dist > 1500 ? 1.6 : dist > 800 ? 1.35 : dist > 400 ? 1.15 : 1;
-        labor = Math.round(labor * distMult);
-        truck = Math.round(truck * distMult);
-      }
-
       const extraCost = extrasMap[extras].cost;
-      const total = labor + truck + extraCost;
+      const total = labor + truckTotal + extraCost;
 
-      /* Update breakdown lines */
+      // ── Update display ─────────────────────────────
+      const hrsLabel = type === 'local' ? HRS_LABELS[size].local : HRS_LABELS[size].inter;
+      document.getElementById('bd-formula').textContent =
+        `$${RATE}/hr × ${cfg.movers} mud. × ${hrsLabel}`;
       document.getElementById('bd-labor').textContent = '$' + labor.toLocaleString();
-      document.getElementById('bd-truck').textContent = '$' + truck.toLocaleString();
+
+      const truckLabel = type === 'local'
+        ? `Camión ${TRUCK_SIZE[size]} (1 día)`
+        : `Camión ${TRUCK_SIZE[size]} (${rentalDays} días)`;
+      document.getElementById('bd-truck-label').textContent = truckLabel;
+      document.getElementById('bd-truck').textContent = '$' + (truckBase * rentalDays).toLocaleString();
+
+      document.getElementById('bd-miles-label').textContent =
+        `${miles} millas × $${MILE_RATE}/mi`;
+      document.getElementById('bd-miles').textContent = '$' + milesCost.toLocaleString();
 
       const extrasRow = document.getElementById('bd-extras-row');
       if (extraCost > 0) {
@@ -1937,16 +1995,19 @@
 
       animateNumber(total);
 
-      const labels = { studio: 'estudio/1 hab.', '2br': '2 habitaciones', '3br': '3 habitaciones', '4br': '4+ habitaciones' };
+      const sizeLabels = { studio: 'estudio/1 hab.', '2br': '2 habitaciones', '3br': '3 habitaciones', '4br': '4+ habitaciones' };
       document.getElementById('result-note').textContent =
-        `Para ${labels[size]} · Mudanza ${type === 'local' ? 'local en NJ' : 'interestatal'}`;
+        `Para ${sizeLabels[size]} · ${miles} millas · Mudanza ${type === 'local' ? 'local en NJ' : 'interestatal'}`;
 
+      // ── WhatsApp message ───────────────────────────
       const waBtn = document.getElementById('wa-calc-btn');
-      waBtn.href = `https://wa.me/19084578129?text=Hola,%20calculé%20mi%20mudanza:%0A` +
-        `👷%20Mano%20de%20obra:%20$${labor.toLocaleString()}%0A` +
-        `🚛%20Alquiler%20camión:%20$${truck.toLocaleString()}%0A` +
-        (extraCost ? `📦%20${encodeURIComponent(extrasMap[extras].label)}:%20$${extraCost.toLocaleString()}%0A` : '') +
-        `💰%20Total%20estimado:%20$${total.toLocaleString()}%0A%0AQuisiera%20cotización%20formal.`;
+      waBtn.href = `https://wa.me/19084578129?text=Hola%20Yaritao%20Moving!%0A%0AMi%20estimado%20calculado%3A%0A` +
+        `📐%20$${RATE}/hr%20×%20${cfg.movers}%20mudanceros%20×%20${hrsLabel}%0A` +
+        `👷%20Mano%20de%20obra%3A%20$${labor.toLocaleString()}%0A` +
+        `🚛%20${encodeURIComponent(truckLabel)}%3A%20$${(truckBase * rentalDays).toLocaleString()}%0A` +
+        `📍%20${miles}%20millas%20×%20$${MILE_RATE}%2Fmi%3A%20$${milesCost.toLocaleString()}%0A` +
+        (extraCost ? `📦%20${encodeURIComponent(extrasMap[extras].label)}%3A%20$${extraCost.toLocaleString()}%0A` : '') +
+        `💰%20Total%20estimado%3A%20$${total.toLocaleString()}%0A%0AQuisiera%20una%20cotización%20formal.%20Gracias!`;
     }
 
     function animateNumber(target) {
@@ -1970,6 +2031,10 @@
     document.getElementById('calc-type').addEventListener('change', calcEstimate);
     document.getElementById('calc-size').addEventListener('change', calcEstimate);
     document.getElementById('calc-extras').addEventListener('change', calcEstimate);
+    document.getElementById('calc-miles').addEventListener('input', calcEstimate);
+
+    // Run on load with default values
+    calcEstimate();
 
     /* ── Form submit ── */
     function submitForm() {
