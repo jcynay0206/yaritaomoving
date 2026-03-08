@@ -12,16 +12,16 @@
        VARIABLES & RESET
     ══════════════════════════════════════════ */
     :root {
-      --ink:     #0B1420;
-      --navy:    #112240;
-      --navy2:   #1A3A6B;
-      --gold:    #C9993A;
-      --gold2:   #E8B84B;
-      --cream:   #F5EFE0;
-      --light:   #EAF0F8;
-      --muted:   #8A9AB5;
-      --white:   #FFFFFF;
-      --card:    #162B50;
+      --ink:     #2C2416;
+      --navy:    #4A3728;
+      --navy2:   #6B5240;
+      --gold:    #B8914A;
+      --gold2:   #C9A05A;
+      --cream:   #FAF6EE;
+      --light:   #F2EAD8;
+      --muted:   #8A7560;
+      --white:   #FFFDF8;
+      --card:    #F0E8D0;
 
       --font-display: 'Syne', sans-serif;
       --font-body:    'Outfit', sans-serif;
@@ -36,8 +36,8 @@
 
     body {
       font-family: var(--font-body);
-      background: var(--ink);
-      color: var(--white);
+      background: var(--cream);
+      color: var(--ink);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
@@ -78,9 +78,9 @@
       transition: background 0.4s var(--ease), backdrop-filter 0.4s;
     }
     nav.scrolled {
-      background: rgba(11, 20, 32, 0.92);
+      background: rgba(250, 246, 238, 0.95);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(201, 153, 58, 0.15);
+      border-bottom: 1px solid rgba(184, 145, 74, 0.2);
     }
     nav .container {
       display: flex;
@@ -97,7 +97,7 @@
       gap: 10px;
     }
     .nav-logo span {
-      color: var(--gold2);
+      color: var(--gold);
     }
     .nav-logo-icon {
       width: 36px; height: 36px;
@@ -114,10 +114,10 @@
       font-weight: 500;
       color: var(--muted);
     }
-    .nav-links a:hover { color: var(--gold2); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); transition: color 0.2s; }
     .nav-cta {
       background: var(--gold);
-      color: var(--ink);
+      color: var(--white);
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 0.88rem;
@@ -127,7 +127,7 @@
       text-transform: uppercase;
       transition: background 0.2s, transform 0.2s;
     }
-    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+    .nav-cta:hover { background: var(--navy2); transform: translateY(-1px); }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -148,9 +148,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(26, 58, 107, 0.55) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 80% at 10% 60%, rgba(201, 153, 58, 0.08) 0%, transparent 60%),
-        linear-gradient(160deg, #0B1420 0%, #0F2240 50%, #0B1420 100%);
+        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(184, 145, 74, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 10% 60%, rgba(107, 82, 64, 0.1) 0%, transparent 60%),
+        linear-gradient(160deg, #FAF6EE 0%, #F2E8D0 50%, #FAF6EE 100%);
     }
 
     /* Grid lines decoration */
@@ -158,8 +158,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(201,153,58,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,153,58,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(184,145,74,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,145,74,0.07) 1px, transparent 1px);
       background-size: 60px 60px;
     }
 
@@ -182,9 +182,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(201,153,58,0.12);
-      border: 1px solid rgba(201,153,58,0.3);
-      color: var(--gold2);
+      background: rgba(184,145,74,0.12);
+      border: 1px solid rgba(184,145,74,0.35);
+      color: var(--gold);
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -216,7 +216,7 @@
     }
     .hero-title em {
       font-style: normal;
-      color: var(--gold2);
+      color: var(--gold);
       position: relative;
     }
     .hero-title em::after {
@@ -224,9 +224,9 @@
       position: absolute;
       bottom: 2px; left: 0; right: 0;
       height: 3px;
-      background: var(--gold);
+      background: var(--gold2);
       border-radius: 2px;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     .hero-sub {
@@ -251,7 +251,7 @@
       align-items: center;
       gap: 10px;
       background: var(--gold);
-      color: var(--ink);
+      color: var(--white);
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 1rem;
@@ -260,13 +260,13 @@
       border-radius: var(--radius);
       text-transform: uppercase;
       transition: all 0.25s var(--ease);
-      box-shadow: 0 8px 32px rgba(201,153,58,0.3);
+      box-shadow: 0 8px 28px rgba(184,145,74,0.35);
       border: none; cursor: pointer;
     }
     .btn-primary:hover {
-      background: var(--gold2);
+      background: var(--navy2);
       transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(201,153,58,0.45);
+      box-shadow: 0 14px 40px rgba(107,82,64,0.3);
     }
 
     .btn-ghost {
@@ -274,20 +274,20 @@
       align-items: center;
       gap: 10px;
       background: transparent;
-      color: var(--white);
+      color: var(--ink);
       font-family: var(--font-body);
       font-weight: 500;
       font-size: 0.96rem;
       padding: 16px 28px;
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(44,36,22,0.25);
       transition: all 0.25s var(--ease);
       cursor: pointer;
     }
     .btn-ghost:hover {
       border-color: var(--gold);
-      color: var(--gold2);
-      background: rgba(201,153,58,0.06);
+      color: var(--gold);
+      background: rgba(184,145,74,0.06);
     }
 
     .hero-stats {
@@ -295,7 +295,7 @@
       gap: 48px;
       margin-top: 64px;
       padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(44,36,22,0.12);
       animation: fadeUp 0.6s var(--ease) 0.4s both;
       flex-wrap: wrap;
     }
@@ -303,7 +303,7 @@
       font-family: var(--font-display);
       font-size: 2.4rem;
       font-weight: 800;
-      color: var(--gold2);
+      color: var(--gold);
       line-height: 1;
     }
     .hero-stat-label {
@@ -338,9 +338,9 @@
        TRUSTED BAR
     ══════════════════════════════════════════ */
     .trust-bar {
-      background: rgba(201,153,58,0.08);
-      border-top: 1px solid rgba(201,153,58,0.15);
-      border-bottom: 1px solid rgba(201,153,58,0.15);
+      background: #EDE0C8;
+      border-top: 1px solid rgba(184,145,74,0.25);
+      border-bottom: 1px solid rgba(184,145,74,0.25);
       padding: 18px 0;
     }
     .trust-bar .container {
@@ -361,7 +361,7 @@
     .trust-item span.icon {
       font-size: 1.1rem;
     }
-    .trust-item strong { color: var(--gold2); }
+    .trust-item strong { color: var(--navy); }
 
     /* ══════════════════════════════════════════
        SECTION TITLES
@@ -382,6 +382,7 @@
       line-height: 1.1;
       letter-spacing: -0.01em;
       margin-bottom: 18px;
+      color: var(--ink);
     }
     .section-sub {
       color: var(--muted);
@@ -410,8 +411,8 @@
       gap: 24px;
     }
     .service-card {
-      background: var(--card);
-      border: 1px solid rgba(201,153,58,0.12);
+      background: var(--white);
+      border: 1px solid rgba(184,145,74,0.2);
       border-radius: var(--radius);
       padding: 36px 32px;
       transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
@@ -430,14 +431,14 @@
     }
     .service-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(201,153,58,0.3);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      border-color: rgba(184,145,74,0.4);
+      box-shadow: 0 20px 50px rgba(44,36,22,0.1);
     }
     .service-card:hover::before { transform: scaleX(1); }
 
     .service-card.featured {
-      background: linear-gradient(145deg, #1A3A6B 0%, #0F2A4A 100%);
-      border-color: rgba(201,153,58,0.35);
+      background: linear-gradient(145deg, #EDE0C8 0%, #F5ECDA 100%);
+      border-color: rgba(184,145,74,0.4);
     }
     .service-icon {
       font-size: 2.2rem;
@@ -448,7 +449,7 @@
       position: absolute;
       top: 20px; right: 20px;
       background: var(--gold);
-      color: var(--ink);
+      color: var(--white);
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -461,6 +462,7 @@
       font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 12px;
+      color: var(--ink);
     }
     .service-desc {
       color: var(--muted);
@@ -479,7 +481,7 @@
       align-items: center;
       gap: 8px;
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.75);
+      color: var(--navy);
     }
     .service-list li::before {
       content: '→';
@@ -492,7 +494,7 @@
     ══════════════════════════════════════════ */
     #precios {
       padding: 100px 0;
-      background: linear-gradient(180deg, transparent, rgba(26,58,107,0.2), transparent);
+      background: linear-gradient(180deg, transparent, rgba(237,224,200,0.6), transparent);
     }
     .pricing-intro {
       text-align: center;
@@ -508,20 +510,21 @@
     }
 
     .price-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--white);
+      border: 1px solid rgba(184,145,74,0.2);
       border-radius: var(--radius);
       padding: 32px 28px;
       text-align: center;
-      transition: transform 0.3s var(--ease), border-color 0.3s;
+      transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
     }
     .price-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(201,153,58,0.25);
+      border-color: rgba(184,145,74,0.45);
+      box-shadow: 0 16px 40px rgba(44,36,22,0.08);
     }
     .price-card.highlight {
-      background: linear-gradient(145deg, rgba(201,153,58,0.18), rgba(201,153,58,0.06));
-      border-color: rgba(201,153,58,0.4);
+      background: linear-gradient(145deg, #EDE0C8, #F5ECDA);
+      border-color: rgba(184,145,74,0.55);
       position: relative;
     }
     .price-card.highlight::after {
@@ -530,7 +533,7 @@
       top: -12px; left: 50%;
       transform: translateX(-50%);
       background: var(--gold);
-      color: var(--ink);
+      color: var(--white);
       font-size: 0.65rem;
       font-weight: 800;
       letter-spacing: 0.12em;
@@ -556,7 +559,7 @@
       font-family: var(--font-display);
       font-size: 2.8rem;
       font-weight: 800;
-      color: var(--white);
+      color: var(--ink);
       line-height: 1;
     }
     .price-amount sup {
@@ -573,15 +576,15 @@
     .price-note {
       margin-top: 18px;
       padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(184,145,74,0.15);
       font-size: 0.84rem;
-      color: rgba(255,255,255,0.55);
+      color: var(--muted);
       line-height: 1.5;
     }
 
     .pricing-note-box {
-      background: rgba(201,153,58,0.08);
-      border: 1px solid rgba(201,153,58,0.2);
+      background: rgba(184,145,74,0.08);
+      border: 1px solid rgba(184,145,74,0.25);
       border-radius: var(--radius);
       padding: 22px 28px;
       display: flex;
@@ -594,7 +597,7 @@
       color: var(--muted);
       line-height: 1.65;
     }
-    .pricing-note-box strong { color: var(--gold2); }
+    .pricing-note-box strong { color: var(--gold); }
 
     /* ══════════════════════════════════════════
        CALCULATOR
@@ -611,8 +614,8 @@
     @media (max-width: 768px) { .calc-wrap { grid-template-columns: 1fr; gap: 40px; } }
 
     .calc-form {
-      background: var(--card);
-      border: 1px solid rgba(201,153,58,0.15);
+      background: var(--white);
+      border: 1px solid rgba(184,145,74,0.2);
       border-radius: var(--radius);
       padding: 40px;
     }
@@ -623,16 +626,16 @@
       display: block;
       font-size: 0.84rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.7);
+      color: var(--navy);
       margin-bottom: 8px;
       letter-spacing: 0.03em;
     }
     select, input[type="number"] {
       width: 100%;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--cream);
+      border: 1px solid rgba(184,145,74,0.25);
       border-radius: 8px;
-      color: var(--white);
+      color: var(--ink);
       font-family: var(--font-body);
       font-size: 0.95rem;
       padding: 14px 16px;
@@ -643,13 +646,13 @@
     }
     select:focus, input[type="number"]:focus {
       border-color: var(--gold);
-      background: rgba(201,153,58,0.05);
+      background: rgba(184,145,74,0.05);
     }
-    select option { background: var(--navy); }
+    select option { background: var(--cream); color: var(--ink); }
 
     .calc-result {
-      background: linear-gradient(145deg, rgba(201,153,58,0.15), rgba(201,153,58,0.04));
-      border: 2px solid rgba(201,153,58,0.4);
+      background: linear-gradient(145deg, #EDE0C8, #F5ECDA);
+      border: 2px solid rgba(184,145,74,0.5);
       border-radius: var(--radius);
       padding: 40px;
       text-align: center;
@@ -668,11 +671,11 @@
       font-family: var(--font-display);
       font-size: 4rem;
       font-weight: 800;
-      color: var(--white);
+      color: var(--ink);
       line-height: 1;
       transition: all 0.3s var(--ease);
     }
-    .result-amount.animating { color: var(--gold2); transform: scale(1.05); }
+    .result-amount.animating { color: var(--gold); transform: scale(1.05); }
     .result-currency {
       font-size: 1.6rem;
       color: var(--gold);
@@ -688,7 +691,7 @@
     .result-disclaimer {
       margin-top: 20px;
       padding: 14px;
-      background: rgba(0,0,0,0.2);
+      background: rgba(44,36,22,0.06);
       border-radius: 8px;
       font-size: 0.78rem;
       color: var(--muted);
@@ -699,7 +702,7 @@
 
     /* Breakdown styles */
     .breakdown {
-      background: rgba(0,0,0,0.2);
+      background: rgba(44,36,22,0.05);
       border-radius: 10px;
       padding: 18px 20px;
       margin-bottom: 0;
@@ -712,30 +715,30 @@
       align-items: center;
       gap: 10px;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(184,145,74,0.15);
     }
     .breakdown-row:last-child { border-bottom: none; }
     .breakdown-icon { font-size: 1rem; width: 22px; flex-shrink: 0; }
     .breakdown-concept {
       flex: 1;
       font-size: 0.86rem;
-      color: rgba(255,255,255,0.7);
+      color: var(--muted);
     }
     .breakdown-val {
       font-family: var(--font-display);
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--ink);
     }
-    .truck-row .breakdown-val { color: var(--gold2); }
+    .truck-row .breakdown-val { color: var(--gold); }
     .breakdown-divider {
       height: 1px;
-      background: rgba(201,153,58,0.3);
+      background: rgba(184,145,74,0.4);
       margin: 6px 0;
     }
     .breakdown-total .breakdown-concept {
       font-weight: 700;
-      color: var(--white);
+      color: var(--ink);
       font-size: 0.9rem;
     }
 
@@ -744,7 +747,7 @@
     ══════════════════════════════════════════ */
     #cobertura {
       padding: 100px 0;
-      background: linear-gradient(180deg, transparent, rgba(17,34,64,0.4), transparent);
+      background: linear-gradient(180deg, transparent, rgba(237,224,200,0.5), transparent);
     }
     .coverage-wrap {
       display: grid;
@@ -785,20 +788,20 @@
       align-items: center;
       gap: 14px;
       padding: 14px 18px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--white);
+      border: 1px solid rgba(184,145,74,0.18);
       border-radius: 10px;
       transition: border-color 0.2s;
     }
-    .zone-item:hover { border-color: rgba(201,153,58,0.3); }
+    .zone-item:hover { border-color: rgba(184,145,74,0.4); }
     .zone-dot {
       width: 10px; height: 10px;
       border-radius: 50%;
       flex-shrink: 0;
     }
-    .zone-dot.active { background: var(--gold2); box-shadow: 0 0 8px var(--gold); }
-    .zone-dot.interstate { background: #64B5F6; box-shadow: 0 0 8px rgba(100,181,246,0.5); }
-    .zone-name { font-weight: 600; font-size: 0.92rem; }
+    .zone-dot.active { background: var(--gold); box-shadow: 0 0 8px rgba(184,145,74,0.5); }
+    .zone-dot.interstate { background: #5B8DD9; box-shadow: 0 0 8px rgba(91,141,217,0.4); }
+    .zone-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
     .zone-desc { font-size: 0.8rem; color: var(--muted); }
 
     .states-grid {
@@ -808,19 +811,19 @@
       margin-top: 28px;
     }
     .state-chip {
-      background: rgba(100,181,246,0.08);
-      border: 1px solid rgba(100,181,246,0.2);
+      background: rgba(91,141,217,0.08);
+      border: 1px solid rgba(91,141,217,0.22);
       border-radius: 6px;
       padding: 8px 12px;
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.75);
+      color: var(--navy);
       text-align: center;
       transition: all 0.2s;
     }
     .state-chip:hover {
-      background: rgba(100,181,246,0.15);
-      border-color: rgba(100,181,246,0.4);
-      color: var(--white);
+      background: rgba(91,141,217,0.15);
+      border-color: rgba(91,141,217,0.4);
+      color: var(--ink);
     }
 
     /* ══════════════════════════════════════════
@@ -837,20 +840,21 @@
     }
     .why-card {
       padding: 36px 30px;
-      background: linear-gradient(145deg, rgba(26,58,107,0.4), rgba(26,58,107,0.1));
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--white);
+      border: 1px solid rgba(184,145,74,0.18);
       border-radius: var(--radius);
-      transition: transform 0.3s var(--ease), border-color 0.3s;
+      transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
     }
     .why-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(201,153,58,0.25);
+      border-color: rgba(184,145,74,0.4);
+      box-shadow: 0 12px 36px rgba(44,36,22,0.08);
     }
     .why-number {
       font-family: var(--font-display);
       font-size: 4rem;
       font-weight: 800;
-      color: rgba(201,153,58,0.15);
+      color: rgba(184,145,74,0.2);
       line-height: 1;
       margin-bottom: 16px;
     }
@@ -859,6 +863,7 @@
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 10px;
+      color: var(--ink);
     }
     .why-desc {
       font-size: 0.9rem;
@@ -871,14 +876,14 @@
     ══════════════════════════════════════════ */
     #resenas {
       padding: 100px 0;
-      background: linear-gradient(180deg, transparent, rgba(17,34,64,0.3), transparent);
+      background: linear-gradient(180deg, transparent, rgba(237,224,200,0.4), transparent);
     }
     .reviews-header {
       text-align: center;
       margin-bottom: 56px;
     }
     .stars {
-      color: var(--gold2);
+      color: var(--gold);
       font-size: 1.1rem;
       letter-spacing: 2px;
       margin-bottom: 8px;
@@ -889,20 +894,21 @@
       gap: 24px;
     }
     .review-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--white);
+      border: 1px solid rgba(184,145,74,0.18);
       border-radius: var(--radius);
       padding: 32px;
-      transition: transform 0.3s var(--ease), border-color 0.3s;
+      transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
     }
     .review-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(201,153,58,0.2);
+      border-color: rgba(184,145,74,0.4);
+      box-shadow: 0 12px 36px rgba(44,36,22,0.07);
     }
-    .review-stars { color: var(--gold2); font-size: 0.9rem; margin-bottom: 14px; }
+    .review-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; }
     .review-text {
       font-size: 0.93rem;
-      color: rgba(255,255,255,0.8);
+      color: var(--navy);
       line-height: 1.7;
       font-style: italic;
       margin-bottom: 22px;
@@ -915,16 +921,17 @@
     .review-avatar {
       width: 40px; height: 40px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--navy2));
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 1rem;
+      color: var(--white);
       flex-shrink: 0;
     }
-    .review-name { font-weight: 600; font-size: 0.9rem; }
+    .review-name { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
     .review-location { font-size: 0.78rem; color: var(--muted); }
 
     /* ══════════════════════════════════════════
@@ -975,13 +982,13 @@
       transform: translateX(6px);
     }
     .channel-btn.phone {
-      background: rgba(201,153,58,0.08);
-      border-color: rgba(201,153,58,0.25);
-      color: var(--gold2);
+      background: rgba(184,145,74,0.08);
+      border-color: rgba(184,145,74,0.3);
+      color: var(--gold);
     }
     .channel-btn.phone:hover {
-      background: rgba(201,153,58,0.14);
-      border-color: rgba(201,153,58,0.5);
+      background: rgba(184,145,74,0.15);
+      border-color: rgba(184,145,74,0.55);
       transform: translateX(6px);
     }
     .channel-icon { font-size: 1.5rem; flex-shrink: 0; }
@@ -990,8 +997,8 @@
 
     /* Form */
     .quote-form {
-      background: var(--card);
-      border: 1px solid rgba(201,153,58,0.15);
+      background: var(--white);
+      border: 1px solid rgba(184,145,74,0.2);
       border-radius: var(--radius);
       padding: 40px;
     }
@@ -1000,6 +1007,7 @@
       font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 28px;
+      color: var(--ink);
     }
     .form-row {
       display: grid;
@@ -1013,10 +1021,10 @@
     input[type="email"],
     textarea {
       width: 100%;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--cream);
+      border: 1px solid rgba(184,145,74,0.22);
       border-radius: 8px;
-      color: var(--white);
+      color: var(--ink);
       font-family: var(--font-body);
       font-size: 0.95rem;
       padding: 14px 16px;
@@ -1029,7 +1037,7 @@
     input[type="email"]:focus,
     textarea:focus {
       border-color: var(--gold);
-      background: rgba(201,153,58,0.04);
+      background: rgba(184,145,74,0.04);
     }
     textarea { resize: vertical; min-height: 100px; }
 
@@ -1078,8 +1086,8 @@
        FOOTER
     ══════════════════════════════════════════ */
     footer {
-      background: #070E18;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      background: #1E1509;
+      border-top: 1px solid rgba(184,145,74,0.2);
       padding: 56px 0 32px;
     }
     .footer-top {
@@ -1277,28 +1285,28 @@
     <!-- CSS-drawn truck illustration -->
     <svg class="hero-truck" viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Truck body -->
-      <rect x="20" y="60" width="280" height="160" rx="8" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <rect x="20" y="60" width="280" height="160" rx="8" fill="#EDE0C8" stroke="rgba(184,145,74,0.5)" stroke-width="2"/>
       <!-- Truck cab -->
-      <path d="M300 120 L300 220 L420 220 L420 150 L380 80 L300 80 Z" fill="#112240" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <path d="M300 120 L300 220 L420 220 L420 150 L380 80 L300 80 Z" fill="#E0D0B0" stroke="rgba(184,145,74,0.5)" stroke-width="2"/>
       <!-- Windows -->
-      <path d="M310 90 L310 140 L380 140 L380 90 Z" fill="rgba(100,181,246,0.2)" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" rx="4"/>
+      <path d="M310 90 L310 140 L380 140 L380 90 Z" fill="rgba(91,141,217,0.25)" stroke="rgba(91,141,217,0.5)" stroke-width="1.5" rx="4"/>
       <!-- Gold stripe -->
-      <rect x="20" y="185" width="400" height="8" fill="rgba(201,153,58,0.6)"/>
+      <rect x="20" y="185" width="400" height="8" fill="rgba(184,145,74,0.7)"/>
       <!-- YARITAO MOVING text area -->
-      <rect x="40" y="100" width="240" height="70" rx="4" fill="rgba(201,153,58,0.06)" stroke="rgba(201,153,58,0.2)" stroke-width="1"/>
-      <text x="160" y="133" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="18" fill="rgba(201,153,58,0.8)">YARITAO</text>
-      <text x="160" y="155" text-anchor="middle" font-family="Syne, sans-serif" font-weight="600" font-size="11" fill="rgba(201,153,58,0.5)" letter-spacing="4">MOVING</text>
+      <rect x="40" y="100" width="240" height="70" rx="4" fill="rgba(184,145,74,0.1)" stroke="rgba(184,145,74,0.3)" stroke-width="1"/>
+      <text x="160" y="133" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="18" fill="rgba(107,82,64,0.9)">YARITAO</text>
+      <text x="160" y="155" text-anchor="middle" font-family="Syne, sans-serif" font-weight="600" font-size="11" fill="rgba(107,82,64,0.6)" letter-spacing="4">MOVING</text>
       <!-- Wheels -->
-      <circle cx="100" cy="225" r="30" fill="#0B1420" stroke="rgba(201,153,58,0.5)" stroke-width="3"/>
-      <circle cx="100" cy="225" r="14" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
-      <circle cx="240" cy="225" r="30" fill="#0B1420" stroke="rgba(201,153,58,0.5)" stroke-width="3"/>
-      <circle cx="240" cy="225" r="14" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
-      <circle cx="370" cy="225" r="30" fill="#0B1420" stroke="rgba(201,153,58,0.5)" stroke-width="3"/>
-      <circle cx="370" cy="225" r="14" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <circle cx="100" cy="225" r="30" fill="#D4C4A0" stroke="rgba(184,145,74,0.6)" stroke-width="3"/>
+      <circle cx="100" cy="225" r="14" fill="#EDE0C8" stroke="rgba(184,145,74,0.4)" stroke-width="2"/>
+      <circle cx="240" cy="225" r="30" fill="#D4C4A0" stroke="rgba(184,145,74,0.6)" stroke-width="3"/>
+      <circle cx="240" cy="225" r="14" fill="#EDE0C8" stroke="rgba(184,145,74,0.4)" stroke-width="2"/>
+      <circle cx="370" cy="225" r="30" fill="#D4C4A0" stroke="rgba(184,145,74,0.6)" stroke-width="3"/>
+      <circle cx="370" cy="225" r="14" fill="#EDE0C8" stroke="rgba(184,145,74,0.4)" stroke-width="2"/>
       <!-- Headlight -->
-      <rect x="413" y="170" width="20" height="12" rx="3" fill="rgba(232,184,75,0.8)"/>
+      <rect x="413" y="170" width="20" height="12" rx="3" fill="rgba(201,170,90,0.9)"/>
       <!-- Road -->
-      <line x1="0" y1="255" x2="440" y2="255" stroke="rgba(201,153,58,0.15)" stroke-width="2" stroke-dasharray="30 20"/>
+      <line x1="0" y1="255" x2="440" y2="255" stroke="rgba(184,145,74,0.2)" stroke-width="2" stroke-dasharray="30 20"/>
     </svg>
   </section>
 
@@ -1594,51 +1602,51 @@
             </defs>
 
             <!-- Background glow -->
-            <ellipse cx="150" cy="210" rx="140" ry="200" fill="url(#mapGlow)" opacity="0.4"/>
+            <ellipse cx="150" cy="210" rx="140" ry="200" fill="rgba(184,145,74,0.1)" opacity="0.5"/>
 
             <!-- NJ Shape (simplified) -->
             <path d="M180 20 L210 30 L240 60 L250 100 L245 140 L260 170 L270 200 L265 240 L240 280 L220 310 L190 340 L160 370 L140 390 L120 380 L100 360 L90 330 L80 300 L70 260 L75 220 L65 190 L60 160 L70 130 L80 100 L90 70 L110 45 L140 25 Z"
-              fill="rgba(26,58,107,0.6)" stroke="rgba(201,153,58,0.5)" stroke-width="2" filter="url(#glow)"/>
+              fill="rgba(237,224,200,0.8)" stroke="rgba(184,145,74,0.6)" stroke-width="2"/>
 
             <!-- Counties grid lines (decorative) -->
-            <line x1="80" y1="150" x2="240" y2="150" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="80" y1="200" x2="250" y2="200" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="80" y1="250" x2="240" y2="250" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="80" y1="300" x2="210" y2="300" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="130" y1="30" x2="130" y2="390" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-            <line x1="180" y1="20" x2="180" y2="370" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="80" y1="150" x2="240" y2="150" stroke="rgba(184,145,74,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="80" y1="200" x2="250" y2="200" stroke="rgba(184,145,74,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="80" y1="250" x2="240" y2="250" stroke="rgba(184,145,74,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="80" y1="300" x2="210" y2="300" stroke="rgba(184,145,74,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="130" y1="30" x2="130" y2="390" stroke="rgba(184,145,74,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="180" y1="20" x2="180" y2="370" stroke="rgba(184,145,74,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
 
             <!-- City dots -->
-            <circle cx="170" cy="140" r="6" fill="var(--gold2)" opacity="0.9" filter="url(#glow)"/>
-            <text x="180" y="144" font-size="10" fill="rgba(255,255,255,0.7)" font-family="Outfit">Newark</text>
+            <circle cx="170" cy="140" r="6" fill="var(--gold)" opacity="0.9"/>
+            <text x="180" y="144" font-size="10" fill="rgba(44,36,22,0.7)" font-family="Outfit">Newark</text>
 
-            <circle cx="140" cy="180" r="5" fill="var(--gold)" opacity="0.8"/>
-            <text x="150" y="184" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">Elizabeth</text>
+            <circle cx="140" cy="180" r="5" fill="var(--gold)" opacity="0.7"/>
+            <text x="150" y="184" font-size="9" fill="rgba(44,36,22,0.6)" font-family="Outfit">Elizabeth</text>
 
-            <circle cx="160" cy="220" r="5" fill="var(--gold)" opacity="0.8"/>
-            <text x="170" y="224" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">New Brunswick</text>
+            <circle cx="160" cy="220" r="5" fill="var(--gold)" opacity="0.7"/>
+            <text x="170" y="224" font-size="9" fill="rgba(44,36,22,0.6)" font-family="Outfit">New Brunswick</text>
 
-            <circle cx="130" cy="300" r="5" fill="rgba(100,181,246,0.9)" opacity="0.9"/>
-            <text x="140" y="304" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">Camden</text>
+            <circle cx="130" cy="300" r="5" fill="#5B8DD9" opacity="0.9"/>
+            <text x="140" y="304" font-size="9" fill="rgba(44,36,22,0.6)" font-family="Outfit">Camden</text>
 
-            <circle cx="200" cy="100" r="5" fill="rgba(100,181,246,0.9)" opacity="0.9"/>
-            <text x="210" y="104" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">Paterson</text>
+            <circle cx="200" cy="100" r="5" fill="#5B8DD9" opacity="0.9"/>
+            <text x="210" y="104" font-size="9" fill="rgba(44,36,22,0.6)" font-family="Outfit">Paterson</text>
 
             <!-- NJ label -->
-            <text x="150" y="210" text-anchor="middle" font-family="Syne, sans-serif" font-size="28" font-weight="800" fill="rgba(201,153,58,0.2)" letter-spacing="4">NJ</text>
+            <text x="150" y="210" text-anchor="middle" font-family="Syne, sans-serif" font-size="28" font-weight="800" fill="rgba(184,145,74,0.3)" letter-spacing="4">NJ</text>
 
             <!-- Directional arrows to other states -->
-            <path d="M250 110 L285 90" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <polygon points="285,90 278,98 290,97" fill="rgba(100,181,246,0.5)"/>
-            <text x="258" y="85" font-size="9" fill="rgba(100,181,246,0.6)" font-family="Outfit">NY</text>
+            <path d="M250 110 L285 90" stroke="rgba(91,141,217,0.5)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="285,90 278,98 290,97" fill="rgba(91,141,217,0.6)"/>
+            <text x="258" y="85" font-size="9" fill="rgba(91,141,217,0.8)" font-family="Outfit">NY</text>
 
-            <path d="M80 280 L45 290" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <polygon points="45,290 54,284 52,296" fill="rgba(100,181,246,0.5)"/>
-            <text x="16" y="294" font-size="9" fill="rgba(100,181,246,0.6)" font-family="Outfit">PA</text>
+            <path d="M80 280 L45 290" stroke="rgba(91,141,217,0.5)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="45,290 54,284 52,296" fill="rgba(91,141,217,0.6)"/>
+            <text x="16" y="294" font-size="9" fill="rgba(91,141,217,0.8)" font-family="Outfit">PA</text>
 
-            <path d="M160 390 L160 415" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <polygon points="160,415 154,405 166,405" fill="rgba(100,181,246,0.5)"/>
-            <text x="135" y="413" font-size="9" fill="rgba(100,181,246,0.6)" font-family="Outfit">y más...</text>
+            <path d="M160 390 L160 415" stroke="rgba(91,141,217,0.5)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="160,415 154,405 166,405" fill="rgba(91,141,217,0.6)"/>
+            <text x="135" y="413" font-size="9" fill="rgba(91,141,217,0.8)" font-family="Outfit">y más...</text>
           </svg>
         </div>
       </div>
