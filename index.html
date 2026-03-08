@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaritao Moving — Mudanzas Profesionales en New Jersey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ══════════════════════════════════════════
+       VARIABLES & RESET
+    ══════════════════════════════════════════ */
+    :root {
+      --ink:     #0B1420;
+      --navy:    #112240;
+      --navy2:   #1A3A6B;
+      --gold:    #C9993A;
+      --gold2:   #E8B84B;
+      --cream:   #F5EFE0;
+      --light:   #EAF0F8;
+      --muted:   #8A9AB5;
+      --white:   #FFFFFF;
+      --card:    #162B50;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'Outfit', sans-serif;
+
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--ink);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    section { position: relative; }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ══════════════════════════════════════════
+       NOISE TEXTURE OVERLAY
+    ══════════════════════════════════════════ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.5;
+    }
+
+    /* ══════════════════════════════════════════
+       NAV
+    ══════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: background 0.4s var(--ease), backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(11, 20, 32, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(201, 153, 58, 0.15);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo span {
+      color: var(--gold2);
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .nav-links a:hover { color: var(--gold2); transition: color 0.2s; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      padding: 11px 22px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(26, 58, 107, 0.55) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 10% 60%, rgba(201, 153, 58, 0.08) 0%, transparent 60%),
+        linear-gradient(160deg, #0B1420 0%, #0F2240 50%, #0B1420 100%);
+    }
+
+    /* Grid lines decoration */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,153,58,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,153,58,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Route line decoration */
+    .hero-route {
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 48%;
+      opacity: 0.12;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,153,58,0.12);
+      border: 1px solid rgba(201,153,58,0.3);
+      color: var(--gold2);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 40px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s var(--ease) both;
+    }
+    .hero-badge::before {
+      content: '●';
+      font-size: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 26px;
+      animation: fadeUp 0.6s var(--ease) 0.1s both;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold2);
+      position: relative;
+    }
+    .hero-title em::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 46px;
+      font-weight: 400;
+      animation: fadeUp 0.6s var(--ease) 0.2s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s var(--ease) 0.3s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      padding: 16px 30px;
+      border-radius: var(--radius);
+      text-transform: uppercase;
+      transition: all 0.25s var(--ease);
+      box-shadow: 0 8px 32px rgba(201,153,58,0.3);
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--gold2);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(201,153,58,0.45);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.96rem;
+      padding: 16px 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: all 0.25s var(--ease);
+      cursor: pointer;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold2);
+      background: rgba(201,153,58,0.06);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      animation: fadeUp 0.6s var(--ease) 0.4s both;
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--gold2);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Truck illustration (CSS) */
+    .hero-truck {
+      position: absolute;
+      right: 4%;
+      bottom: 12%;
+      width: 440px;
+      opacity: 0;
+      animation: truckReveal 1s var(--ease) 0.6s forwards;
+      pointer-events: none;
+    }
+    @keyframes truckReveal {
+      from { opacity: 0; transform: translateX(60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @media (max-width: 900px) { .hero-truck { display: none; } }
+
+    /* ══════════════════════════════════════════
+       TRUSTED BAR
+    ══════════════════════════════════════════ */
+    .trust-bar {
+      background: rgba(201,153,58,0.08);
+      border-top: 1px solid rgba(201,153,58,0.15);
+      border-bottom: 1px solid rgba(201,153,58,0.15);
+      padding: 18px 0;
+    }
+    .trust-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .trust-item span.icon {
+      font-size: 1.1rem;
+    }
+    .trust-item strong { color: var(--gold2); }
+
+    /* ══════════════════════════════════════════
+       SECTION TITLES
+    ══════════════════════════════════════════ */
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    /* ══════════════════════════════════════════
+       SERVICES
+    ══════════════════════════════════════════ */
+    #servicios {
+      padding: 100px 0;
+    }
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid rgba(201,153,58,0.12);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s var(--ease);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,153,58,0.3);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card.featured {
+      background: linear-gradient(145deg, #1A3A6B 0%, #0F2A4A 100%);
+      border-color: rgba(201,153,58,0.35);
+    }
+    .service-icon {
+      font-size: 2.2rem;
+      margin-bottom: 22px;
+      display: block;
+    }
+    .service-tag {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .service-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .service-list {
+      list-style: none;
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .service-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .service-list li::before {
+      content: '→';
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+
+    /* ══════════════════════════════════════════
+       PRICING
+    ══════════════════════════════════════════ */
+    #precios {
+      padding: 100px 0;
+      background: linear-gradient(180deg, transparent, rgba(26,58,107,0.2), transparent);
+    }
+    .pricing-intro {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .pricing-intro .section-sub { margin: 0 auto; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .price-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      text-align: center;
+      transition: transform 0.3s var(--ease), border-color 0.3s;
+    }
+    .price-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(201,153,58,0.25);
+    }
+    .price-card.highlight {
+      background: linear-gradient(145deg, rgba(201,153,58,0.18), rgba(201,153,58,0.06));
+      border-color: rgba(201,153,58,0.4);
+      position: relative;
+    }
+    .price-card.highlight::after {
+      content: 'MÁS POPULAR';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .price-type {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .price-rooms {
+      font-size: 0.82rem;
+      color: var(--gold);
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .price-amount sup {
+      font-size: 1.2rem;
+      vertical-align: top;
+      margin-top: 8px;
+      color: var(--gold);
+    }
+    .price-range {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .price-note {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    .pricing-note-box {
+      background: rgba(201,153,58,0.08);
+      border: 1px solid rgba(201,153,58,0.2);
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .pricing-note-box .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .pricing-note-box p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .pricing-note-box strong { color: var(--gold2); }
+
+    /* ══════════════════════════════════════════
+       CALCULATOR
+    ══════════════════════════════════════════ */
+    #calculadora {
+      padding: 100px 0;
+    }
+    .calc-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .calc-wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+    .calc-form {
+      background: var(--card);
+      border: 1px solid rgba(201,153,58,0.15);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+    select, input[type="number"] {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    select:focus, input[type="number"]:focus {
+      border-color: var(--gold);
+      background: rgba(201,153,58,0.05);
+    }
+    select option { background: var(--navy); }
+
+    .calc-result {
+      background: linear-gradient(145deg, rgba(201,153,58,0.15), rgba(201,153,58,0.04));
+      border: 2px solid rgba(201,153,58,0.4);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+      position: sticky;
+      top: 100px;
+    }
+    .result-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .result-amount {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      transition: all 0.3s var(--ease);
+    }
+    .result-amount.animating { color: var(--gold2); transform: scale(1.05); }
+    .result-currency {
+      font-size: 1.6rem;
+      color: var(--gold);
+      vertical-align: top;
+      margin-top: 10px;
+    }
+    .result-note {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .result-disclaimer {
+      margin-top: 20px;
+      padding: 14px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .result-cta {
+      margin-top: 24px;
+    }
+
+    /* Breakdown styles */
+    .breakdown {
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .breakdown-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .breakdown-row:last-child { border-bottom: none; }
+    .breakdown-icon { font-size: 1rem; width: 22px; flex-shrink: 0; }
+    .breakdown-concept {
+      flex: 1;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .breakdown-val {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .truck-row .breakdown-val { color: var(--gold2); }
+    .breakdown-divider {
+      height: 1px;
+      background: rgba(201,153,58,0.3);
+      margin: 6px 0;
+    }
+    .breakdown-total .breakdown-concept {
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+
+    /* ══════════════════════════════════════════
+       COVERAGE MAP
+    ══════════════════════════════════════════ */
+    #cobertura {
+      padding: 100px 0;
+      background: linear-gradient(180deg, transparent, rgba(17,34,64,0.4), transparent);
+    }
+    .coverage-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .coverage-wrap { grid-template-columns: 1fr; } }
+
+    .coverage-nj {
+      position: relative;
+    }
+    .nj-visual {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 3/4;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SVG NJ state shape */
+    .nj-map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .coverage-zones {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .zone-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+    .zone-item:hover { border-color: rgba(201,153,58,0.3); }
+    .zone-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .zone-dot.active { background: var(--gold2); box-shadow: 0 0 8px var(--gold); }
+    .zone-dot.interstate { background: #64B5F6; box-shadow: 0 0 8px rgba(100,181,246,0.5); }
+    .zone-name { font-weight: 600; font-size: 0.92rem; }
+    .zone-desc { font-size: 0.8rem; color: var(--muted); }
+
+    .states-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .state-chip {
+      background: rgba(100,181,246,0.08);
+      border: 1px solid rgba(100,181,246,0.2);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .state-chip:hover {
+      background: rgba(100,181,246,0.15);
+      border-color: rgba(100,181,246,0.4);
+      color: var(--white);
+    }
+
+    /* ══════════════════════════════════════════
+       WHY US
+    ══════════════════════════════════════════ */
+    #por-que {
+      padding: 100px 0;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 60px;
+    }
+    .why-card {
+      padding: 36px 30px;
+      background: linear-gradient(145deg, rgba(26,58,107,0.4), rgba(26,58,107,0.1));
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      transition: transform 0.3s var(--ease), border-color 0.3s;
+    }
+    .why-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,153,58,0.25);
+    }
+    .why-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(201,153,58,0.15);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .why-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .why-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════════ */
+    #resenas {
+      padding: 100px 0;
+      background: linear-gradient(180deg, transparent, rgba(17,34,64,0.3), transparent);
+    }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .stars {
+      color: var(--gold2);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: transform 0.3s var(--ease), border-color 0.3s;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,153,58,0.2);
+    }
+    .review-stars { color: var(--gold2); font-size: 0.9rem; margin-bottom: 14px; }
+    .review-text {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--navy2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .review-name { font-weight: 600; font-size: 0.9rem; }
+    .review-location { font-size: 0.78rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════════
+       CONTACT / COTIZACION
+    ══════════════════════════════════════════ */
+    #cotizacion {
+      padding: 100px 0;
+    }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .contact-wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+    .contact-info h2 { margin-bottom: 20px; }
+    .contact-info .section-sub { margin-bottom: 40px; }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .channel-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      border-radius: var(--radius);
+      border: 1px solid;
+      transition: all 0.25s var(--ease);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-align: left;
+      width: 100%;
+    }
+    .channel-btn.whatsapp {
+      background: rgba(37,211,102,0.08);
+      border-color: rgba(37,211,102,0.3);
+      color: #25D366;
+    }
+    .channel-btn.whatsapp:hover {
+      background: rgba(37,211,102,0.15);
+      border-color: rgba(37,211,102,0.6);
+      transform: translateX(6px);
+    }
+    .channel-btn.phone {
+      background: rgba(201,153,58,0.08);
+      border-color: rgba(201,153,58,0.25);
+      color: var(--gold2);
+    }
+    .channel-btn.phone:hover {
+      background: rgba(201,153,58,0.14);
+      border-color: rgba(201,153,58,0.5);
+      transform: translateX(6px);
+    }
+    .channel-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .channel-title { font-size: 0.95rem; }
+    .channel-detail { font-size: 0.78rem; opacity: 0.65; font-weight: 400; }
+
+    /* Form */
+    .quote-form {
+      background: var(--card);
+      border: 1px solid rgba(201,153,58,0.15);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .quote-form h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--gold);
+      background: rgba(201,153,58,0.04);
+    }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 17px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s var(--ease);
+      margin-top: 8px;
+      box-shadow: 0 6px 24px rgba(201,153,58,0.25);
+    }
+    .form-submit:hover {
+      background: var(--gold2);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(201,153,58,0.4);
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .form-success .check {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .form-success h4 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--gold2);
+    }
+    .form-success p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    footer {
+      background: #070E18;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 56px 0 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 340px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    .footer-col li:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-bottom a { color: var(--gold); }
+
+    /* ══════════════════════════════════════════
+       FLOATING WHATSAPP
+    ══════════════════════════════════════════ */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+    }
+    .wa-btn {
+      width: 62px; height: 62px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+      cursor: pointer;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s;
+      position: relative;
+    }
+    .wa-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.6);
+    }
+    .wa-btn svg { width: 32px; height: 32px; fill: white; }
+    .wa-pulse {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.5);
+      animation: waPulse 2s infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .wa-tooltip {
+      position: absolute;
+      right: 74px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(11,20,32,0.95);
+      border: 1px solid rgba(37,211,102,0.3);
+      border-radius: 10px;
+      padding: 10px 16px;
+      white-space: nowrap;
+      font-size: 0.82rem;
+      color: var(--white);
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ══════════════════════════════════════════
+       SCROLL REVEAL (via IntersectionObserver)
+    ══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🚛</div>
+        YARITAO <span>MOVING</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#cobertura">Cobertura</a></li>
+        <li><a href="#resenas">Reseñas</a></li>
+      </ul>
+      <a href="https://wa.me/19084578129?text=Hola,%20necesito%20una%20cotización%20de%20mudanza" class="nav-cta" target="_blank">Cotización Gratis</a>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">📍 New Jersey &amp; Todo EE.UU.</div>
+
+        <h1 class="hero-title">
+          Tu mudanza,<br>
+          <em>sin estrés</em><br>
+          ni sorpresas.
+        </h1>
+
+        <p class="hero-sub">
+          Mudanzas locales y a cualquier estado de América. Equipo profesional, precios transparentes y atención personalizada en español.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/19084578129?text=Hola,%20necesito%20una%20cotización%20de%20mudanza" class="btn-primary" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+          <a href="#calculadora" class="btn-ghost">
+            <span>🧮</span>
+            Calcular mi mudanza
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">21</div>
+            <div class="hero-stat-label">Condados en NJ</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">50</div>
+            <div class="hero-stat-label">Estados disponibles</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Atención en español</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS-drawn truck illustration -->
+    <svg class="hero-truck" viewBox="0 0 440 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Truck body -->
+      <rect x="20" y="60" width="280" height="160" rx="8" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <!-- Truck cab -->
+      <path d="M300 120 L300 220 L420 220 L420 150 L380 80 L300 80 Z" fill="#112240" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <!-- Windows -->
+      <path d="M310 90 L310 140 L380 140 L380 90 Z" fill="rgba(100,181,246,0.2)" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" rx="4"/>
+      <!-- Gold stripe -->
+      <rect x="20" y="185" width="400" height="8" fill="rgba(201,153,58,0.6)"/>
+      <!-- YARITAO MOVING text area -->
+      <rect x="40" y="100" width="240" height="70" rx="4" fill="rgba(201,153,58,0.06)" stroke="rgba(201,153,58,0.2)" stroke-width="1"/>
+      <text x="160" y="133" text-anchor="middle" font-family="Syne, sans-serif" font-weight="800" font-size="18" fill="rgba(201,153,58,0.8)">YARITAO</text>
+      <text x="160" y="155" text-anchor="middle" font-family="Syne, sans-serif" font-weight="600" font-size="11" fill="rgba(201,153,58,0.5)" letter-spacing="4">MOVING</text>
+      <!-- Wheels -->
+      <circle cx="100" cy="225" r="30" fill="#0B1420" stroke="rgba(201,153,58,0.5)" stroke-width="3"/>
+      <circle cx="100" cy="225" r="14" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <circle cx="240" cy="225" r="30" fill="#0B1420" stroke="rgba(201,153,58,0.5)" stroke-width="3"/>
+      <circle cx="240" cy="225" r="14" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <circle cx="370" cy="225" r="30" fill="#0B1420" stroke="rgba(201,153,58,0.5)" stroke-width="3"/>
+      <circle cx="370" cy="225" r="14" fill="#1A3A6B" stroke="rgba(201,153,58,0.4)" stroke-width="2"/>
+      <!-- Headlight -->
+      <rect x="413" y="170" width="20" height="12" rx="3" fill="rgba(232,184,75,0.8)"/>
+      <!-- Road -->
+      <line x1="0" y1="255" x2="440" y2="255" stroke="rgba(201,153,58,0.15)" stroke-width="2" stroke-dasharray="30 20"/>
+    </svg>
+  </section>
+
+  <!-- ══ TRUST BAR ═════════════════════════════════ -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-item"><span class="icon">🔐</span> <div><strong>Seguro incluido</strong> en cada mudanza</div></div>
+      <div class="trust-item"><span class="icon">📞</span> <div>Respuesta <strong>en menos de 1 hora</strong></div></div>
+      <div class="trust-item"><span class="icon">🗣️</span> <div>Servicio <strong>100% en español</strong></div></div>
+      <div class="trust-item"><span class="icon">📦</span> <div><strong>Storage disponible</strong> si lo necesitas</div></div>
+      <div class="trust-item"><span class="icon">🏠</span> <div>Residencial <strong>y comercial</strong></div></div>
+    </div>
+  </div>
+
+  <!-- ══ SERVICIOS ══════════════════════════════════ -->
+  <section id="servicios">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <span class="section-label">Lo que hacemos</span>
+          <h2 class="section-title">Servicios diseñados<br>para tu tranquilidad</h2>
+        </div>
+        <p class="section-sub">Desde un apartamento pequeño hasta una oficina completa. Nos adaptamos a tu situación.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card featured reveal">
+          <div class="service-tag">⭐ Premium</div>
+          <span class="service-icon">🏠</span>
+          <div class="service-title">Mudanzas Residenciales</div>
+          <p class="service-desc">Nos encargamos de todo: desde el primer mueble hasta el último cajón. Tu hogar en manos expertas.</p>
+          <ul class="service-list">
+            <li>Apartamentos y casas de todos los tamaños</li>
+            <li>Desarmado y armado de muebles</li>
+            <li>Manejo cuidadoso de objetos frágiles</li>
+            <li>Empaque profesional disponible</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <span class="service-icon">🗺️</span>
+          <div class="service-title">Mudanzas Interestatales</div>
+          <p class="service-desc">¿Te mudas fuera de New Jersey? Te llevamos a cualquier estado de Estados Unidos con total seguridad.</p>
+          <ul class="service-list">
+            <li>Cobertura los 50 estados</li>
+            <li>Seguimiento en tiempo real</li>
+            <li>Fechas flexibles de entrega</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <span class="service-icon">🏢</span>
+          <div class="service-title">Mudanzas Comerciales</div>
+          <p class="service-desc">Oficinas, negocios, locales. Minimizamos el tiempo de inactividad para que sigas operando cuanto antes.</p>
+          <ul class="service-list">
+            <li>Planificación previa de la mudanza</li>
+            <li>Manejo de equipos de oficina</li>
+            <li>Disponibilidad en fines de semana</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <span class="service-icon">📦</span>
+          <div class="service-title">Empaque Completo</div>
+          <p class="service-desc">Proveemos materiales y personal para empacar todo tu hogar de forma segura y organizada.</p>
+          <ul class="service-list">
+            <li>Cajas y materiales de protección</li>
+            <li>Etiquetado y organización</li>
+            <li>Desempaque en destino</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <span class="service-icon">🗄️</span>
+          <div class="service-title">Almacenamiento Temporal</div>
+          <p class="service-desc">¿Necesitas guardar tus cosas antes de llegar a tu nuevo lugar? Tenemos soluciones de storage seguro.</p>
+          <ul class="service-list">
+            <li>Instalaciones monitoreadas 24/7</li>
+            <li>Distintos tamaños de unidades</li>
+            <li>Acceso flexible</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <span class="service-icon">🎯</span>
+          <div class="service-title">Servicio Especializado</div>
+          <p class="service-desc">Pianos, obras de arte, equipos delicados, artículos de alto valor. Sabemos cómo manejarlos.</p>
+          <ul class="service-list">
+            <li>Embalaje especial para frágiles</li>
+            <li>Personal entrenado para objetos únicos</li>
+            <li>Seguro adicional disponible</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRECIOS ════════════════════════════════════ -->
+  <section id="precios">
+    <div class="container">
+      <div class="pricing-intro reveal">
+        <span class="section-label">Transparencia total</span>
+        <h2 class="section-title">Sin letras pequeñas.<br>Sin sorpresas al final.</h2>
+        <p class="section-sub">Estos son nuestros rangos reales de precios en el mercado de NJ. Tu cotización exacta depende del tamaño y distancia.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="price-type">Mudanza Local</div>
+          <div class="price-rooms">Estudio / 1 habitación</div>
+          <div class="price-amount"><sup>$</sup>550</div>
+          <div class="price-range">hasta $800 aprox.</div>
+          <div class="price-note">Cobro por hora · 2–3 hrs promedio · 2 mudanceros</div>
+        </div>
+
+        <div class="price-card highlight reveal reveal-delay-1">
+          <div class="price-type">Mudanza Local</div>
+          <div class="price-rooms">2 habitaciones</div>
+          <div class="price-amount"><sup>$</sup>900</div>
+          <div class="price-range">hasta $1,400 aprox.</div>
+          <div class="price-note">Cobro por hora · 4–6 hrs promedio · 3 mudanceros</div>
+        </div>
+
+        <div class="price-card reveal reveal-delay-2">
+          <div class="price-type">Mudanza Local</div>
+          <div class="price-rooms">3 habitaciones o más</div>
+          <div class="price-amount"><sup>$</sup>1,680</div>
+          <div class="price-range">hasta $2,500 aprox.</div>
+          <div class="price-note">Cobro por hora · 6–8 hrs promedio · 4 mudanceros</div>
+        </div>
+
+        <div class="price-card reveal reveal-delay-3">
+          <div class="price-type">Interstate</div>
+          <div class="price-rooms">NJ a otro estado</div>
+          <div class="price-amount"><sup>$</sup>2,500</div>
+          <div class="price-range">hasta $5,000+ según distancia</div>
+          <div class="price-note">Precio fijo · Incluye combustible y peajes</div>
+        </div>
+      </div>
+
+      <div class="pricing-note-box reveal">
+        <div class="icon">💡</div>
+        <p>Los precios varían según el <strong>inventario exacto</strong>, la <strong>distancia</strong> y servicios adicionales como empaque. Contáctanos y te damos una <strong>cotización gratuita y sin compromiso</strong> en menos de una hora.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CALCULADORA ════════════════════════════════ -->
+  <section id="calculadora">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:56px;" class="reveal">
+        <span class="section-label">Herramienta rápida</span>
+        <h2 class="section-title">Calcula tu estimado<br>en segundos</h2>
+        <p class="section-sub" style="margin:0 auto;">Un estimado orientativo para que llegues preparado a tu cotización.</p>
+      </div>
+
+      <div class="calc-wrap">
+        <div class="calc-form reveal">
+          <div class="form-group">
+            <label>¿Qué tipo de mudanza necesitas?</label>
+            <select id="calc-type" onchange="calcEstimate()">
+              <option value="local">Mudanza Local (dentro de NJ)</option>
+              <option value="interstate">Mudanza Interestatal (fuera de NJ)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Tamaño de tu hogar</label>
+            <select id="calc-size" onchange="calcEstimate()">
+              <option value="studio">Estudio / 1 habitación</option>
+              <option value="2br">2 habitaciones</option>
+              <option value="3br">3 habitaciones</option>
+              <option value="4br">4 habitaciones o más</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="distance-group" style="display:none;">
+            <label>Distancia aproximada (millas)</label>
+            <input type="number" id="calc-distance" placeholder="ej. 350" min="50" max="3000" onchange="calcEstimate()" />
+          </div>
+
+          <div class="form-group">
+            <label>Servicios adicionales</label>
+            <select id="calc-extras" onchange="calcEstimate()">
+              <option value="none">Solo mudanza básica</option>
+              <option value="packing">+ Empaque completo</option>
+              <option value="storage">+ Almacenamiento temporal</option>
+              <option value="both">+ Empaque + Storage</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-result reveal reveal-delay-2">
+          <div class="result-label">Desglose del estimado</div>
+          <div class="result-note" id="result-note" style="margin-bottom:20px;">Para un estudio · Mudanza local en NJ</div>
+
+          <!-- Breakdown lines -->
+          <div class="breakdown">
+            <div class="breakdown-row">
+              <span class="breakdown-icon">👷</span>
+              <span class="breakdown-concept">Mano de obra</span>
+              <span class="breakdown-val" id="bd-labor">$475</span>
+            </div>
+            <div class="breakdown-row truck-row">
+              <span class="breakdown-icon">🚛</span>
+              <span class="breakdown-concept">Alquiler de camión</span>
+              <span class="breakdown-val" id="bd-truck">$120</span>
+            </div>
+            <div class="breakdown-row" id="bd-extras-row" style="display:none;">
+              <span class="breakdown-icon">📦</span>
+              <span class="breakdown-concept" id="bd-extras-label">Servicios adicionales</span>
+              <span class="breakdown-val" id="bd-extras">$0</span>
+            </div>
+            <div class="breakdown-divider"></div>
+            <div class="breakdown-row breakdown-total">
+              <span></span>
+              <span class="breakdown-concept">Total estimado</span>
+              <div class="result-amount" id="result-amount">
+                <span class="result-currency">$</span><span id="result-num">595</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-disclaimer">
+            ⚠️ Estimado referencial. El precio final varía según inventario exacto, pisos, distancia real y condiciones del día.
+          </div>
+          <div class="result-cta">
+            <a href="https://wa.me/19084578129?text=Hola,%20calculé%20mi%20mudanza%20en%20el%20estimado%20y%20me%20salió%20$" class="btn-primary" target="_blank" id="wa-calc-btn" style="width:100%; justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Confirmar cotización ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COBERTURA ══════════════════════════════════ -->
+  <section id="cobertura">
+    <div class="container">
+      <div class="coverage-wrap">
+        <div class="reveal">
+          <span class="section-label">Zona de operación</span>
+          <h2 class="section-title">Todo New Jersey.<br>Todo el país.</h2>
+          <p class="section-sub" style="margin-bottom:32px;">Operamos en los 21 condados de NJ y realizamos mudanzas a cualquier estado de la nación.</p>
+
+          <div class="coverage-zones">
+            <div class="zone-item">
+              <div class="zone-dot active"></div>
+              <div>
+                <div class="zone-name">New Jersey — Cobertura completa</div>
+                <div class="zone-desc">Los 21 condados · Mudanzas locales por hora</div>
+              </div>
+            </div>
+            <div class="zone-item">
+              <div class="zone-dot interstate"></div>
+              <div>
+                <div class="zone-name">Mudanzas Interestatales</div>
+                <div class="zone-desc">Cualquier estado de EE.UU. · Precio fijo garantizado</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:28px;">
+            <p style="font-size:0.82rem; color:var(--muted); margin-bottom:12px; letter-spacing:0.05em; text-transform:uppercase; font-weight:600;">Destinos frecuentes</p>
+            <div class="states-grid">
+              <div class="state-chip">Nueva York</div>
+              <div class="state-chip">Pennsylvania</div>
+              <div class="state-chip">Florida</div>
+              <div class="state-chip">Texas</div>
+              <div class="state-chip">California</div>
+              <div class="state-chip">Georgia</div>
+              <div class="state-chip">Carolina NC</div>
+              <div class="state-chip">Connecticut</div>
+              <div class="state-chip">Massachusetts</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual NJ Map (SVG) -->
+        <div class="nj-visual reveal reveal-delay-2">
+          <svg viewBox="0 0 300 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;filter:drop-shadow(0 20px 60px rgba(201,153,58,0.15));">
+            <!-- NJ state shape approximation -->
+            <defs>
+              <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(26,58,107,0.8)"/>
+                <stop offset="100%" stop-color="rgba(11,20,32,0.4)"/>
+              </radialGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Background glow -->
+            <ellipse cx="150" cy="210" rx="140" ry="200" fill="url(#mapGlow)" opacity="0.4"/>
+
+            <!-- NJ Shape (simplified) -->
+            <path d="M180 20 L210 30 L240 60 L250 100 L245 140 L260 170 L270 200 L265 240 L240 280 L220 310 L190 340 L160 370 L140 390 L120 380 L100 360 L90 330 L80 300 L70 260 L75 220 L65 190 L60 160 L70 130 L80 100 L90 70 L110 45 L140 25 Z"
+              fill="rgba(26,58,107,0.6)" stroke="rgba(201,153,58,0.5)" stroke-width="2" filter="url(#glow)"/>
+
+            <!-- Counties grid lines (decorative) -->
+            <line x1="80" y1="150" x2="240" y2="150" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="80" y1="200" x2="250" y2="200" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="80" y1="250" x2="240" y2="250" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="80" y1="300" x2="210" y2="300" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="130" y1="30" x2="130" y2="390" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="180" y1="20" x2="180" y2="370" stroke="rgba(201,153,58,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+
+            <!-- City dots -->
+            <circle cx="170" cy="140" r="6" fill="var(--gold2)" opacity="0.9" filter="url(#glow)"/>
+            <text x="180" y="144" font-size="10" fill="rgba(255,255,255,0.7)" font-family="Outfit">Newark</text>
+
+            <circle cx="140" cy="180" r="5" fill="var(--gold)" opacity="0.8"/>
+            <text x="150" y="184" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">Elizabeth</text>
+
+            <circle cx="160" cy="220" r="5" fill="var(--gold)" opacity="0.8"/>
+            <text x="170" y="224" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">New Brunswick</text>
+
+            <circle cx="130" cy="300" r="5" fill="rgba(100,181,246,0.9)" opacity="0.9"/>
+            <text x="140" y="304" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">Camden</text>
+
+            <circle cx="200" cy="100" r="5" fill="rgba(100,181,246,0.9)" opacity="0.9"/>
+            <text x="210" y="104" font-size="9" fill="rgba(255,255,255,0.6)" font-family="Outfit">Paterson</text>
+
+            <!-- NJ label -->
+            <text x="150" y="210" text-anchor="middle" font-family="Syne, sans-serif" font-size="28" font-weight="800" fill="rgba(201,153,58,0.2)" letter-spacing="4">NJ</text>
+
+            <!-- Directional arrows to other states -->
+            <path d="M250 110 L285 90" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="285,90 278,98 290,97" fill="rgba(100,181,246,0.5)"/>
+            <text x="258" y="85" font-size="9" fill="rgba(100,181,246,0.6)" font-family="Outfit">NY</text>
+
+            <path d="M80 280 L45 290" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="45,290 54,284 52,296" fill="rgba(100,181,246,0.5)"/>
+            <text x="16" y="294" font-size="9" fill="rgba(100,181,246,0.6)" font-family="Outfit">PA</text>
+
+            <path d="M160 390 L160 415" stroke="rgba(100,181,246,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="160,415 154,405 166,405" fill="rgba(100,181,246,0.5)"/>
+            <text x="135" y="413" font-size="9" fill="rgba(100,181,246,0.6)" font-family="Outfit">y más...</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHY US ══════════════════════════════════════ -->
+  <section id="por-que">
+    <div class="container">
+      <div style="max-width:540px;" class="reveal">
+        <span class="section-label">¿Por qué elegirnos?</span>
+        <h2 class="section-title">No somos otra<br>empresa más.</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-number">01</div>
+          <div class="why-title">Precios sin sorpresas</div>
+          <p class="why-desc">Te damos un estimado claro antes de empezar. Sin cargos ocultos al final del servicio. Lo que acordamos, es lo que pagas.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-number">02</div>
+          <div class="why-title">Atención en tu idioma</div>
+          <p class="why-desc">100% en español, desde la cotización hasta la entrega. Sabemos lo que es navegar un proceso difícil en otro idioma — y lo eliminamos.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-number">03</div>
+          <div class="why-title">Respuesta en una hora</div>
+          <p class="why-desc">No te dejamos esperando. Respondemos tu consulta rápido, sin formularios complicados. Un mensaje de WhatsApp y listo.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-number">04</div>
+          <div class="why-title">Manejo profesional</div>
+          <p class="why-desc">Tus pertenencias son importantes. Usamos materiales de protección adecuados y técnicas correctas para cuidar cada pieza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RESEÑAS ═════════════════════════════════════ -->
+  <section id="resenas">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <span class="section-label">Lo que dicen los clientes</span>
+        <div class="stars">★★★★★</div>
+        <h2 class="section-title">Clientes satisfechos<br>en todo NJ</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Excelente servicio. Llegaron puntual, manejaron todo con cuidado y terminaron más rápido de lo esperado. El precio fue exactamente el estimado. Sin dudas los recomiendo."</p>
+          <div class="review-author">
+            <div class="review-avatar">MR</div>
+            <div>
+              <div class="review-name">María R.</div>
+              <div class="review-location">Newark, NJ → Elizabeth, NJ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Me mudé de Jersey City a Florida y fue una experiencia sin estrés. La comunicación fue perfecta y mis cosas llegaron en perfecto estado. 100% recomendados."</p>
+          <div class="review-author">
+            <div class="review-avatar">CL</div>
+            <div>
+              <div class="review-name">Carlos L.</div>
+              <div class="review-location">Jersey City, NJ → Miami, FL</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Lo que más me gustó fue poder comunicarme en español en todo momento. Fueron muy profesionales y cuidadosos con mi piano. Precio justo y honesto."</p>
+          <div class="review-author">
+            <div class="review-avatar">AP</div>
+            <div>
+              <div class="review-name">Ana P.</div>
+              <div class="review-location">Paterson, NJ → New Brunswick, NJ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COTIZACIÓN ═════════════════════════════════ -->
+  <section id="cotizacion">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="reveal">
+          <span class="section-label">Hablemos</span>
+          <h2 class="section-title section-title--contact">¿Listo para tu próxima mudanza?</h2>
+          <p class="section-sub">La mejor opción es escribirnos directamente. Respondemos rápido y sin rodeos.</p>
+
+          <div class="contact-channels" style="margin-top:36px;">
+            <a href="https://wa.me/19084578129?text=Hola,%20necesito%20una%20cotización%20de%20mudanza" target="_blank" class="channel-btn whatsapp">
+              <div class="channel-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <div class="channel-title">WhatsApp — Respuesta en 1 hora</div>
+                <div class="channel-detail">+1 (908) 457-8129 · La forma más rápida</div>
+              </div>
+            </a>
+
+            <a href="tel:+19084578129" class="channel-btn phone">
+              <div class="channel-icon">📞</div>
+              <div>
+                <div class="channel-title">Llamada directa</div>
+                <div class="channel-detail">+1 (908) 457-8129</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulario de respaldo -->
+        <div class="quote-form reveal reveal-delay-2" id="quote-form-section">
+          <h3>Formulario de cotización</h3>
+
+          <div id="form-fields">
+            <div class="form-row form-group">
+              <div>
+                <label>Tu nombre</label>
+                <input type="text" id="fname" placeholder="Juan García" />
+              </div>
+              <div>
+                <label>Teléfono / WhatsApp</label>
+                <input type="tel" id="fphone" placeholder="+1 (555) 000-0000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>¿Desde dónde te mudas?</label>
+              <input type="text" id="from" placeholder="Ciudad, NJ" />
+            </div>
+
+            <div class="form-group">
+              <label>¿A dónde te mudas?</label>
+              <input type="text" id="to" placeholder="Ciudad, Estado" />
+            </div>
+
+            <div class="form-group">
+              <label>Fecha tentativa de mudanza</label>
+              <input type="text" id="date" placeholder="ej. Principios de agosto" />
+            </div>
+
+            <div class="form-group">
+              <label>Cuéntanos más (opcional)</label>
+              <textarea id="notes" placeholder="Tamaño de tu hogar, objetos especiales, cualquier detalle que nos ayude..."></textarea>
+            </div>
+
+            <button class="form-submit" onclick="submitForm()">Enviar solicitud de cotización →</button>
+          </div>
+
+          <div class="form-success" id="form-success">
+            <div class="check">✅</div>
+            <h4>¡Recibimos tu solicitud!</h4>
+            <p>Te contactaremos en menos de una hora por WhatsApp o teléfono al número que nos dejaste.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:0">
+            <div class="nav-logo-icon">🚛</div>
+            YARITAO <span>MOVING</span>
+          </div>
+          <p>Mudanzas profesionales en New Jersey y todo Estados Unidos. Servicio en español, precios transparentes y atención de calidad para cada cliente.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li>Mudanzas Residenciales</li>
+            <li>Mudanzas Interestatales</li>
+            <li>Mudanzas Comerciales</li>
+            <li>Empaque Completo</li>
+            <li>Almacenamiento Temporal</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>📱 +1 (908) 457-8129</li>
+            <li>💬 WhatsApp disponible</li>
+            <li>📍 New Jersey, EE.UU.</li>
+            <li>🕐 Lun–Dom · 8am–8pm</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Yaritao Moving · Todos los derechos reservados</span>
+        <span>Hecho con ❤️ para la comunidad latina en NJ</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ FLOATING WHATSAPP ══════════════════════════ -->
+  <div class="wa-float">
+    <div class="wa-tooltip">¡Cotiza gratis ahora!</div>
+    <a href="https://wa.me/19084578129?text=Hola,%20necesito%20una%20cotización%20de%20mudanza" target="_blank">
+      <div class="wa-btn">
+        <div class="wa-pulse"></div>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </div>
+    </a>
+  </div>
+
+  <!-- ══ JAVASCRIPT ═════════════════════════════════ -->
+  <script>
+    /* ── Nav scroll effect ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Calculator ── */
+    function calcEstimate() {
+      const type     = document.getElementById('calc-type').value;
+      const size     = document.getElementById('calc-size').value;
+      const extras   = document.getElementById('calc-extras').value;
+      const distGroup = document.getElementById('distance-group');
+
+      distGroup.style.display = type === 'interstate' ? 'block' : 'none';
+
+      /* --- Labor (mano de obra) --- */
+      const laborLocal = { studio: 475, '2br': 820, '3br': 1480, '4br': 2000 };
+      const laborInter = { studio: 1700, '2br': 2200, '3br': 3200, '4br': 4200 };
+
+      /* --- Truck rental (alquiler de camión) ---
+           Local: tarifa diaria + millas (~$0.89/mi)
+           Interstate: base diaria × días estimados + combustible       */
+      const truckLocal = { studio: 120, '2br': 155, '3br': 210, '4br': 280 };
+      const truckInterBase = { studio: 420, '2br': 620, '3br': 950, '4br': 1350 };
+
+      /* --- Extras --- */
+      const extrasMap = {
+        none:    { cost: 0,   label: '' },
+        packing: { cost: 350, label: 'Empaque completo' },
+        storage: { cost: 200, label: 'Almacenamiento temporal' },
+        both:    { cost: 530, label: 'Empaque + Storage' }
+      };
+
+      let labor = type === 'local' ? laborLocal[size] : laborInter[size];
+      let truck = type === 'local' ? truckLocal[size] : truckInterBase[size];
+
+      if (type === 'interstate') {
+        const dist = parseInt(document.getElementById('calc-distance').value) || 350;
+        const distMult = dist > 1500 ? 1.6 : dist > 800 ? 1.35 : dist > 400 ? 1.15 : 1;
+        labor = Math.round(labor * distMult);
+        truck = Math.round(truck * distMult);
+      }
+
+      const extraCost = extrasMap[extras].cost;
+      const total = labor + truck + extraCost;
+
+      /* Update breakdown lines */
+      document.getElementById('bd-labor').textContent = '$' + labor.toLocaleString();
+      document.getElementById('bd-truck').textContent = '$' + truck.toLocaleString();
+
+      const extrasRow = document.getElementById('bd-extras-row');
+      if (extraCost > 0) {
+        extrasRow.style.display = 'flex';
+        document.getElementById('bd-extras-label').textContent = extrasMap[extras].label;
+        document.getElementById('bd-extras').textContent = '$' + extraCost.toLocaleString();
+      } else {
+        extrasRow.style.display = 'none';
+      }
+
+      animateNumber(total);
+
+      const labels = { studio: 'estudio/1 hab.', '2br': '2 habitaciones', '3br': '3 habitaciones', '4br': '4+ habitaciones' };
+      document.getElementById('result-note').textContent =
+        `Para ${labels[size]} · Mudanza ${type === 'local' ? 'local en NJ' : 'interestatal'}`;
+
+      const waBtn = document.getElementById('wa-calc-btn');
+      waBtn.href = `https://wa.me/19084578129?text=Hola,%20calculé%20mi%20mudanza:%0A` +
+        `👷%20Mano%20de%20obra:%20$${labor.toLocaleString()}%0A` +
+        `🚛%20Alquiler%20camión:%20$${truck.toLocaleString()}%0A` +
+        (extraCost ? `📦%20${encodeURIComponent(extrasMap[extras].label)}:%20$${extraCost.toLocaleString()}%0A` : '') +
+        `💰%20Total%20estimado:%20$${total.toLocaleString()}%0A%0AQuisiera%20cotización%20formal.`;
+    }
+
+    function animateNumber(target) {
+      const el = document.getElementById('result-num');
+      const parent = document.getElementById('result-amount');
+      parent.classList.add('animating');
+      const start = parseInt(el.textContent.replace(/,/g, '')) || 0;
+      const dur = 600;
+      const startTime = performance.now();
+      function step(now) {
+        const progress = Math.min((now - startTime) / dur, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(start + (target - start) * ease).toLocaleString();
+        if (progress < 1) requestAnimationFrame(step);
+        else { el.textContent = target.toLocaleString(); parent.classList.remove('animating'); }
+      }
+      requestAnimationFrame(step);
+    }
+
+    /* ── Calculator type toggle ── */
+    document.getElementById('calc-type').addEventListener('change', calcEstimate);
+    document.getElementById('calc-size').addEventListener('change', calcEstimate);
+    document.getElementById('calc-extras').addEventListener('change', calcEstimate);
+
+    /* ── Form submit ── */
+    function submitForm() {
+      const name  = document.getElementById('fname').value.trim();
+      const phone = document.getElementById('fphone').value.trim();
+      const from  = document.getElementById('from').value.trim();
+      const to    = document.getElementById('to').value.trim();
+
+      if (!name || !phone) {
+        alert('Por favor completa al menos tu nombre y teléfono.');
+        return;
+      }
+
+      /* Build WhatsApp message from form data */
+      const msg = encodeURIComponent(
+        `Hola Yaritao Moving, soy ${name}.\n` +
+        `📞 Contacto: ${phone}\n` +
+        `📦 Me mudo de: ${from || 'N/A'} → ${to || 'N/A'}\n` +
+        `Fecha: ${document.getElementById('date').value || 'Por definir'}\n` +
+        `Notas: ${document.getElementById('notes').value || 'Ninguna'}\n\n` +
+        `Solicito cotización formal. Gracias.`
+      );
+
+      /* Show success screen */
+      document.getElementById('form-fields').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+
+      /* Open WhatsApp after brief delay */
+      setTimeout(() => {
+        window.open(`https://wa.me/19084578129?text=${msg}`, '_blank');
+      }, 800);
+    }
+  </script>
+</body>
+</html>
